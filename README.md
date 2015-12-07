@@ -28,7 +28,7 @@ rad2deg(π / 2)
 
 ```
 
-✓ Fancy unicode pi constant and degrees postfix operator (if you're into that kind of thing)
+✓ Fancy unicode pi constant and degree symbol postfix operator (if you're into that kind of thing)
 
 ```swift
 
