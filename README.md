@@ -1,8 +1,16 @@
 # Degrad
 
-Degrad is a microlibrary for converting between degrees and radians.
+Degrad is a microlibrary for working with angles. It provides functions from converting degrees to radians, and rectangular to polar coordinates.
 
-Degrad works by implementing a `Degradable` protocol on `Float`, `Double`, and `CGFloat`.
+Degrad works by implementing `Degradable` and `Polrectable` protocols on `Float`, `Double`, and `CGFloat`.
+
+### Versions
+
+#### 0.2.0
+
+Added `Polrectable` protocol and `clamp()` function.
+
+### Examples
 
 ✓ Terse unit syntax
 
@@ -16,7 +24,7 @@ Degrad works by implementing a `Degradable` protocol on `Float`, `Double`, and `
 
 ```
 
-✓ Converter functions (note that these work the other way)
+✓ Converter functions
 
 ```swift
 
@@ -25,6 +33,12 @@ deg2rad(90)
 
 rad2deg(π / 2)
 // 90
+
+rec2pol(x: 0, y: 1)
+// (r = 1, θ = 1.5707963267948966)
+
+pol2rec(r: 1, θ: 90°)
+// (x = 0, y = 1)
 
 ```
 

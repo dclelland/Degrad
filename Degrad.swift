@@ -96,3 +96,80 @@ extension CGFloat: Degradable {
     }
     
 }
+
+// MARK: Polrectable protocol
+
+public protocol Polrectable {
+    static func rec2pol(x x: Self, y: Self) -> (r: Self, θ: Self)
+    static func pol2rec(r r: Self, θ: Self) -> (x: Self, y: Self)
+}
+
+// MARK: Polrectable global functions
+
+/**
+Converts rectangular coordinates to polar coordinates.
+
+- parameter x: The x coordinate.
+- parameter y: The y coordinate.
+
+- returns: A tuple `(r, θ)` with the polar coordinates.
+*/
+public func rec2pol<T: Polrectable>(x x: T, y: T) -> (r: T, θ: T) {
+    return T.rec2pol(x: x, y: y)
+}
+
+/**
+Converts polar coordinates to rectangular coordinates.
+ 
+- parameter r: The coordinate's radius.
+- parameter θ: The coordinate's angle.
+ 
+- returns: A tuple `(x, y)` with the rectangular coordinates.
+*/
+public func pol2rec<T: Polrectable>(r r: T, θ: T) -> (x: T, y: T) {
+    return T.pol2rec(r: r, θ: θ)
+}
+
+// MARK: Polrectable implementations
+
+extension Double: Polrectable {
+    
+    /// Converts rectangular coordinates to polar coordinates
+    public static func rec2pol(x x: Double, y: Double) -> (r: Double, θ: Double) {
+        return (r: hypot(y, x), θ: atan2(y, x))
+    }
+    
+    /// Converts polar coordinates to rectangular coordinates
+    public static func pol2rec(r r: Double, θ: Double) -> (x: Double, y: Double) {
+        return (x: r * cos(θ), y: r * sin(θ))
+    }
+    
+}
+
+extension Float: Polrectable {
+    
+    /// Converts rectangular coordinates to polar coordinates
+    public static func rec2pol(x x: Float, y: Float) -> (r: Float, θ: Float) {
+        return (r: hypot(y, x), θ: atan2(y, x))
+    }
+    
+    /// Converts polar coordinates to rectangular coordinates
+    public static func pol2rec(r r: Float, θ: Float) -> (x: Float, y: Float) {
+        return (x: r * cos(θ), y: r * sin(θ))
+    }
+    
+}
+
+extension CGFloat: Polrectable {
+    
+    /// Converts rectangular coordinates to polar coordinates
+    public static func rec2pol(x x: CGFloat, y: CGFloat) -> (r: CGFloat, θ: CGFloat) {
+        return (r: hypot(y, x), θ: atan2(y, x))
+    }
+    
+    /// Converts polar coordinates to rectangular coordinates
+    public static func pol2rec(r r: CGFloat, θ: CGFloat) -> (x: CGFloat, y: CGFloat) {
+        return (x: r * cos(θ), y: r * sin(θ))
+    }
+    
+}
