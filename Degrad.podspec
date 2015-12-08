@@ -7,7 +7,7 @@
 Pod::Spec.new do |s|
   s.name                    = "Degrad"
   s.version                 = "0.2.0"
-  s.summary                 = "Degrad is a microlibrary for working with angles. It provides functions from converting degrees to radians, and from rectangular to polar coordinates."
+  s.summary                 = "A microlibrary for working with angles. Use the ° symbol in your swift code."
   s.homepage                = "https://github.com/dclelland/Degrad"
   s.license                 = { :type => 'MIT' }
   s.author                  = { "Daniel Clelland" => "daniel.clelland@gmail.com" }
