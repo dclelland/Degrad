@@ -8,7 +8,7 @@ Degrad works by implementing `Degradable` and `Polrectable` protocols on `Float`
 
 #### 0.2.0
 
-Added `Polrectable` protocol and `clamp()` function.
+Added `Polrectable` protocol and `rect2pol()`, `pol2rect()` functions.
 
 ### Examples
 
